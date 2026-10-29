@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHSV Bình Minh - Tân Lược - Mỹ Thuận - Long Hồ</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #00529C; /* Màu Xanh Đoàn/Thanh niên */
+            --accent-blue: #0082FB;
+            --light-blue: #EBF3FC;
+            --white: #FFFFFF;
+            --text-dark: #1E293B;
+            --text-gray: #64748B;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 82, 156, 0.08);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            background: var(--light-blue);
+            padding: 10px;
+            border-radius: 50%;
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .btn-cta-nav {
+            background: var(--primary-blue);
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--light-blue) 0%, #FFFFFF 100%);
+            padding: 160px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 35px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: var(--white);
+            box-shadow: 0 10px 20px rgba(0, 82, 156, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--light-blue);
+        }
+
+        /* Sections General */
+        section {
+            padding: 90px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            color: var(--accent-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            color: var(--primary-blue);
+            font-weight: 800;
+        }
+
+        /* About / Mission */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            border: 1px solid #F1F5F9;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 82, 156, 0.08);
+            border-color: var(--light-blue);
+        }
+
+        .about-card i {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            background: var(--light-blue);
+            width: 80px;
+            height: 80px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .about-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .about-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Campaigns Section */
+        .campaigns {
+            background-color: #F8FAFC;
+            max-width: 100%;
+        }
+
+        .campaigns-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .campaign-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .campaign-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            border: 1px solid #E2E8F0;
+        }
+
+        .campaign-header {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .campaign-header i {
+            font-size: 2rem;
+            background: rgba(255,255,255,0.15);
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        .campaign-header h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .campaign-body {
+            padding: 25px;
+        }
+
+        .campaign-body p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .campaign-features {
+            list-style: none;
+        }
+
+        .campaign-features li {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .campaign-features li i {
+            color: var(--accent-blue);
+        }
+
+        /* Human Touch Quote Banner */
+        .quote-banner {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 30px;
+            margin: 40px auto;
+            max-width: 1200px;
+        }
+
+        .quote-banner h2 {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .quote-banner p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #94A3B8;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            background: rgba(255,255,255,0.08);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--white);
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-blue);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 25px;
+            border-top: 1px solid #334155;
+            text-align: center;
+            color: #64748B;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                CHSV Bình Minh - Tân Lược - Mỹ Thuận - Long Hồ
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">Về chúng tôi</a></li>
+                <li><a href="#campaigns">Chiến dịch</a></li>
+                <li><a href="#mission">Giá trị nhân văn</a></li>
+                <li><a href="#contact" class="btn-cta-nav">Liên hệ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Kết Nối Trái Tim - Thắp Sáng Tương Lai</h1>
+        <p>Chi hội Sinh viên Bình Minh - Tân Lược - Mỹ Thuận - Long Hồ: Nơi tuổi trẻ gửi gắm khát vọng cống hiến, lan tỏa yêu thương và mang hơi ấm nhân ái đến mọi miền quê.</p>
+        <div class="hero-btns">
+            <a href="#campaigns" class="btn btn-primary"><i class="fa-solid fa-heart"></i> Xem các chiến dịch</a>
+            <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Đồng hành cùng chúng tôi</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-title">
+            <span>Sứ mệnh & Tinh thần</span>
+            <h2>Những Trái Tim Vì Cộng Đồng</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <i class="fa-solid fa-seedling"></i>
+                <h3>Tình Nguyện Từ Tâm</h3>
+                <p>Mỗi hoạt động tình nguyện không chỉ là trách nhiệm tuổi trẻ mà là tâm huyết sẻ chia khó khăn với bà con và các em nhỏ.</p>
+            </div>
+            <div class="about-card">
+                <i class="fa-solid fa-users-viewfinder"></i>
+                <h3>Đoàn Kết Vững Mạnh</h3>
+                <p>Quy tụ những sinh viên ưu tú đến từ các xã Bình Minh, Tân Lược, Mỹ Thuận thuộc huyện Long Hồ, cùng chung một lý tưởng sống đẹp.</p>
+            </div>
+            <div class="about-card">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <h3>Lan Tỏa Nhân Văn</h3>
+                <p>Xây dựng các công trình thiết thực, để lại dấu ấn tốt đẹp ở mọi vùng đất mà chi hội đặt chân đến.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campaigns Section -->
+    <div style="background-color: #F8FAFC; padding: 90px 0;" id="campaigns">
+        <div class="campaigns-container">
+            <div class="section-title">
+                <span>Dấu ấn hành trình</span>
+                <h2>Các Hoạt Động Trọng Tâm</h2>
+            </div>
+            <div class="campaign-grid">
+                <!-- Campaign 1 -->
+                <div class="campaign-card">
+                    <div class="campaign-header">
+                        <i class="fa-solid fa-sun"></i>
+                        <h3>Mùa Hè Xanh Áo Xanh</h3>
+                    </div>
+                    <div class="campaign-body">
+                        <p>Chiến dịch cao điểm của tuổi trẻ với những công trình mang ý nghĩa thiết thực lâu dài cho người dân.</p>
+                        <ul class="campaign-features">
+                            <li><i class="fa-solid fa-check"></i> Xây dựng và sửa chữa cầu, đường giao thông</li>
+                            <li><i class="fa-solid fa-check"></i> Thắp sáng đường quê, dọn dẹp vệ sinh môi trường</li>
+                            <li><i class="fa-solid fa-check"></i> Ôn tập hè và sinh hoạt kỹ năng cho thiếu nhi</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Campaign 2 -->
+                <div class="campaign-card">
+                    <div class="campaign-header">
+                        <i class="fa-solid fa-moon"></i>
+                        <h3>Trung Thu Cho Em</h3>
+                    </div>
+                    <div class="campaign-body">
+                        <p>Mang ánh sáng ấm áp và nụ cười rạng rỡ đến với các em thiếu nhi có hoàn cảnh khó khăn mỗi dịp rằm tháng Tám.</p>
+                        <ul class="campaign-features">
+                            <li><i class="fa-solid fa-check"></i> Trao tặng hàng trăm suất quà, lồng đèn, bánh kẹo</li>
+                            <li><i class="fa-solid fa-check"></i> Tổ chức đêm hội trăng rằm, phá cỗ vui tươi</li>
+                            <li><i class="fa-solid fa-check"></i> Tặng học bổng khích lệ tinh thần hiếu học</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Campaign 3 -->
+                <div class="campaign-card">
+                    <div class="campaign-header">
+                        <i class="fa-solid fa-hands-bound"></i>
+                        <h3>An Sinh Xã Hội & Đền Ơn</h3>
+                    </div>
+                    <div class="campaign-body">
+                        <p>Tri ân các thế hệ đi trước và chăm lo đời sống vật chất, tinh thần cho các gia đình chính sách, hộ nghèo.</p>
+                        <ul class="campaign-features">
+                            <li><i class="fa-solid fa-check"></i> Thăm hỏi, tặng quà Mẹ VNAH, gia đình chính sách</li>
+                            <li><i class="fa-solid fa-check"></i> Hỗ trợ gạo và nhu yếu phẩm cho hộ có hoàn cảnh khó khăn</li>
+                            <li><i class="fa-solid fa-check"></i> Tuyên truyền sức khỏe cộng đồng</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Banner -->
+    <section>
+        <div class="quote-banner">
+            <h2>"Sống là để cho đâu chỉ nhận riêng mình"</h2>
+            <p>Mỗi bước chân của chiến sĩ tình nguyện CHSV Bình Minh - Tân Lược - Mỹ Thuận - Long Hồ là một nhịp cầu nối yêu thương, vun đắp cho những giá trị nhân văn bền vững tại quê hương Vĩnh Long.</p>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>CHSV Bình Minh - Tân Lược - Mỹ Thuận - Long Hồ</h4>
+                <p>Chi hội sinh viên năng động, sáng tạo và giàu lòng nhân ái, luôn sẵn sàng cống hiến vì cộng đồng.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Liên kết nhanh</h4>
+                <a href="#about">Về chúng tôi</a>
+                <a href="#campaigns">Chiến dịch Mùa Hè Xanh</a>
+                <a href="#campaigns">Trung Thu Cho Em</a>
+                <a href="#contact">Đồng hành cùng hội</a>
+            </div>
+            <div class="footer-col">
+                <h4>Kết nối & Tài trợ</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Địa bàn hoạt động: Huyện Long Hồ, Tỉnh Vĩnh Long</p>
+                <p><i class="fa-solid fa-envelope"></i> Email: chsv.longho@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> Hotline tiếp nhận thông tin: 038X XXX XXX</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CHSV Bình Minh - Tân Lược - Mỹ Thuận - Long Hồ. Thiết kế bằng tất cả sự tận tâm và nhiệt huyết tuổi trẻ.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
